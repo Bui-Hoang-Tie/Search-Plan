@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #05070A;
+  color: #E0E6ED;
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.glow-border {
+  border: 1px solid rgba(34,211,238,0.3);
+  box-shadow: 0 0 15px rgba(34,211,238,0.1);
+}
+
+.map-bg {
+  background-image: radial-gradient(circle at center, rgba(34,211,238,0.05) 0%, transparent 70%),
+                    linear-gradient(rgba(34,211,238,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(34,211,238,0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.glass-panel {
+  background: rgba(10,15,25,0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.status-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(34,211,238,0.15);
+  position: absolute;
+  top: 0;
+  animation: scan 4s linear infinite;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  from { top: 0; }
+  to { top: 100%; }
+}
+
+/* Custom Leaflet popup styling for dark theme */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: #0A0F19 !important;
+  color: #E0E6ED !important;
+  border: 1px solid rgba(34,211,238,0.5);
+  border-radius: 4px;
+}
+.leaflet-popup-content b {
+  color: #22D3EE !important;
+}
+
+/* Custom Scrollbar for immersive UI */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(10,15,25,0.8);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(34,211,238,0.5);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(34,211,238,0.8);
+}
+
